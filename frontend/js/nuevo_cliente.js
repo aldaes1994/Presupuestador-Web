@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const botonEliminar = e.target.closest('.btn-eliminar-cliente');
             if (botonEliminar && confirm('¿Estás seguro de que deseas eliminar este cliente y todos sus presupuestos asociados?')) {
                 try {
-                    const res = await fetch('api.php?action=eliminar_cliente', {
+                    const res = await fetch('presupuestador-web-production.up.railway.app/api.php?action=eliminar_cliente', {
                         method: 'POST',
                         headers: { 'Content-Type': 'application/json' },
                         body: JSON.stringify({ id_cliente: botonEliminar.dataset.id })
