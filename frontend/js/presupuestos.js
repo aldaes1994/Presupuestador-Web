@@ -1,4 +1,4 @@
-const URL_API = "../api/presupuestos.php";
+const URL_API = "presupuestador-web-production.up.railway.app/api/presupuestos.php";
 let solicitudActual;
 const formatoMoneda = new Intl.NumberFormat("es-AR", {
     style: "currency",
