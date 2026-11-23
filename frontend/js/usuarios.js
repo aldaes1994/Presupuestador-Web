@@ -7,7 +7,7 @@ if (cerrar_sesion) {
         e.preventDefault();
         console.log("Listener de cerrar sesión ejecutado");
         try {
-            const respuesta = await fetch("http://localhost/presupuestador/api/logout.php", {
+            const respuesta = await fetch("presupuestador-web-production.up.railway.app/api/logout.php", {
                 method: "POST",
                 credentials: "include"
             });
@@ -52,7 +52,7 @@ if (eliminar_cuenta) {
         }
 
         try {
-            const respuesta = await fetch("http://localhost/presupuestador/api/usuarios.php", {
+            const respuesta = await fetch("presupuestador-web-production.up.railway.app/api/usuarios.php", {
                 method: "POST",
                 credentials: "include",
                 headers: { "Content-Type": "application/json" },
