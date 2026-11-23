@@ -1,4 +1,4 @@
-const API_URL = '../api/clientes.php';
+const API_URL = 'presupuestador-web-production.up.railway.app/api/clientes.php';
 let clientes = [];
 let busquedaActual = '';
 
