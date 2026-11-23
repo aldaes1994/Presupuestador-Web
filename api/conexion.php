@@ -5,12 +5,20 @@ $origen = $_SERVER["HTTP_ORIGIN"] ?? "";
 $origenesPermitidos = [
     "http://127.0.0.1:5000",
     "http://localhost:5000",
-    "http://localhost"
+    "http://localhost",
+    "https://presupuestador-web-production.up.railway.app"
 ];
 if (in_array($origen, $origenesPermitidos, true)) {
-    header("Acces-Control-Allow-Origin: $origen");
-    header("Acces-Control-Allow-Credentials: true");
+    header("Access-Control-Allow-Origin: $origen");
+    header("Access-Control-Allow-Credentials: true");
+    header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS");
+    header("Access-Control-Allow-Headers: Content-Type, Authorization");
     header("Vary: Origin");
+}
+
+if ($_SERVER["REQUEST_METHOD"] === "OPTIONS") {
+    http_response_code(204);
+    exit();
 }
 
 try {
@@ -23,6 +31,12 @@ try {
             PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
         ]
     );
+} catch (PDOException $ex) {
+    http_response_code(500);
+    header("Content-Type: application/json; charset=UTF-8");
+    echo json_encode(["error" => "Error de conexión con la base de datos"]);
+    exit();
+}
 } catch (PDOException $ex) {
     http_response_code(500);
     header("Content-Type: application/json; charset=UTF-8");
