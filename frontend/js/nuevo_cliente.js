@@ -200,7 +200,7 @@ function seleccionarCliente(id) {
 
 async function cargarPresupuestosCliente(idCliente, contenedor) {
     try {
-        const respuesta = await fetch(`../api/presupuestos.php?id_cliente=${encodeURIComponent(idCliente)}`);
+        const respuesta = await fetch(`presupuestador-web-production.up.railway.app/api/presupuestos.php?id_cliente=${encodeURIComponent(idCliente)}`);
         const presupuestos = await respuesta.json();
         if (!respuesta.ok || !Array.isArray(presupuestos)) {
             throw new Error(presupuestos.error || 'No se pudieron cargar los presupuestos.');
