@@ -2,7 +2,7 @@ async function cerrarSesion(button) {
     button.disabled = true;
 
     try {
-        const respuesta = await fetch('../api/logout.php', {
+        const respuesta = await fetch('presupuestador-web-production.up.railway.app/api/logout.php', {
             method: 'POST'
         });
 
