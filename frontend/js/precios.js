@@ -1,6 +1,7 @@
-const API_PRECIOS = "../api/precios.php";
-const API_CATEGORIAS = "../api/categorias.php";
-const API_UNIDADES = "../api/unidades.php";
+const API_PRECIOS = "presupuestador-web-production.up.railway.app/api/precios.php";
+const API_CATEGORIAS = "presupuestador-web-production.up.railway.app/api/categorias.php";
+const API_UNIDADES = "presupuestador-web-production.up.railway.app/api/unidades.php";
+
 
 const agregarPrecio = document.getElementById("agregar_precio");
 const ventanaPrecio = document.getElementById("ventana_precio");
