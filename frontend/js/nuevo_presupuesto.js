@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // 1. Cargar los datos del cliente si viene pasado por URL (ej: ?id_cliente=3)
     const urlParams = new URLSearchParams(window.location.search);
     const idCliente = urlParams.get('id_cliente');
-    const URL_API = '../api/presupuestos.php';
+    const URL_API = 'presupuestador-web-production.up.railway.app/api/presupuestos.php';
 
     if (idCliente) {
         fetch(`${URL_API}?action=get_cliente&id=${idCliente}`)
