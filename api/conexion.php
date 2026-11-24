@@ -32,12 +32,7 @@ try {
         ]
     );
 } catch (PDOException $ex) {
-    http_response_code(500);
-    header("Content-Type: application/json; charset=UTF-8");
-    echo json_encode(["error" => "Error de conexión con la base de datos"]);
-    exit();
-}
-} catch (PDOException $ex) {
+    error_log("Error de conexión PDO: " . $ex->getMessage());
     http_response_code(500);
     header("Content-Type: application/json; charset=UTF-8");
     echo json_encode(["error" => "Error de conexión con la base de datos"]);
